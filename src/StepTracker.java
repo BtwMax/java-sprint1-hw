@@ -41,35 +41,35 @@ public class StepTracker {
     }
 
     /*Метод вывода статистики по переданному месяцу*/
-    void monthStats (int mouth) {
-        int allMouthSteps = 0;
-        int maxMouthSteps = 0;
-        int averageMouthSteps = 0;
+    void monthStats (int month) {
+        int allMonthSteps = 0;
+        int maxMonthSteps = 0;
+        int averageMonthSteps = 0;
         int bestStepSeries = 0;
 
-        if (mouth < 0 || mouth > 11) {
+        if (month < 0 || month > 11) {
             System.out.println("Введите месяц от 0 до 11");
         } else {
-            for (int i = 0; i < monthToData[mouth].length; i++){
-                allMouthSteps = allMouthSteps + monthToData[mouth][i];
-                if(monthToData[mouth][i] > maxMouthSteps) {
-                    maxMouthSteps = monthToData[mouth][i];
+            for (int i = 0; i < monthToData[month].length; i++){
+                allMonthSteps = allMonthSteps + monthToData[month][i];
+                if(monthToData[month][i] > maxMonthSteps) {
+                    maxMonthSteps = monthToData[month][i];
                 }
-                if(monthToData[mouth][i] >= goalBySteps) {
+                if(monthToData[month][i] >= goalBySteps) {
                     bestStepSeries++;
                 } else {
                     bestStepSeries = 1;
                 }
             }
-            averageMouthSteps = allMouthSteps / monthToData[mouth].length;
-            for (int l = 0; l < monthToData[mouth].length; l++) {
-                System.out.print(l + 1 + " День: " + monthToData[mouth][l] + ", ");
+            averageMonthSteps = allMonthSteps / monthToData[month].length;
+            for (int l = 0; l < monthToData[month].length; l++) {
+                System.out.print(l + 1 + " День: " + monthToData[month][l] + ", ");
             }
-            System.out.println("Общее колличество шагов за месяц: " + allMouthSteps);
-            System.out.println("Максимальное пройденное количество шагов в месяце: " + maxMouthSteps);
-            System.out.println("Среднее количество шагов за месяц: " + averageMouthSteps);
-            System.out.println("Пройденная дистанция в км: " + converter.stepsConvertToKm(allMouthSteps));
-            System.out.println("Количество сожженых килокалорий: " + converter.stepsToCalories(allMouthSteps));
+            System.out.println("Общее колличество шагов за месяц: " + allMonthSteps);
+            System.out.println("Максимальное пройденное количество шагов в месяце: " + maxMonthSteps);
+            System.out.println("Среднее количество шагов за месяц: " + averageMonthSteps);
+            System.out.println("Пройденная дистанция в км: " + converter.stepsConvertToKm(allMonthSteps));
+            System.out.println("Количество сожженых килокалорий: " + converter.stepsToCalories(allMonthSteps));
             System.out.println("Максимальная серия: " + bestStepSeries);
         }
     }
