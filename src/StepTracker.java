@@ -57,6 +57,8 @@ public class StepTracker {
                 }
                 if(monthToData[mouth][i] >= goalBySteps) {
                     bestStepSeries++;
+                } else {
+                    bestStepSeries = 0;
                 }
             }
             averageMouthSteps = allMouthSteps / monthToData[mouth].length;
