@@ -3,18 +3,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        StepTracker stepTracker = new StepTracker();
+        StepTracker stepTracker = new StepTracker(scanner);
 
         printMenu();
-        int userInput = scanner.nextInt();
 
-        while (userInput != 0) {
+        while (true) {
+            int userInput = scanner.nextInt();
             if (userInput == 1) {
                 stepTracker.saveSteps();
             } else if (userInput == 2) {
-                System.out.println("Введите месяц, за который хотите получить статистику:");
-                int mouth = scanner.nextInt();
-                stepTracker.monthStats(mouth);
+                stepTracker.monthStats();
             } else if (userInput == 3) {
                 stepTracker.changeGoalBySteps();
             } else if (userInput == 4) {
@@ -22,7 +20,6 @@ public class Main {
             } else
                 System.out.println("Данная команда не поддерживается");
             printMenu();
-            userInput = scanner.nextInt();
         }
         System.out.println("Программа завершена");
     }
