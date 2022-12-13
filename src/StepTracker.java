@@ -67,7 +67,7 @@ public class StepTracker {
                     maxStepSeries = bestStepSeries;
                 }
             } else {
-                bestStepSeries = 1;
+                bestStepSeries = 0;
             }
         }
         averageMonthSteps = allMonthSteps / monthToData[month].length;
